@@ -1,0 +1,16 @@
+wad/moviedb/repository/UserRepository.class
+wad/moviedb/service/ApplicationService.class
+wad/moviedb/repository/ActionRepository.class
+wad/moviedb/service/UserService.class
+wad/moviedb/domain/Action.class
+wad/moviedb/domain/User.class
+wad/moviedb/service/UserServiceImplementation.class
+wad/moviedb/service/ActionServiceImplementation.class
+wad/moviedb/domain/Application.class
+wad/moviedb/controller/ApplicationController.class
+wad/moviedb/controller/ActionController.class
+wad/moviedb/service/ApplicationServiceImplementation.class
+wad/moviedb/service/ActionService.class
+wad/moviedb/controller/DefaultController.class
+wad/moviedb/repository/ApplicationRepository.class
+wad/moviedb/controller/UserController.class
