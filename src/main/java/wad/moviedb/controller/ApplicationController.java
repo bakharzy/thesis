@@ -20,8 +20,8 @@ public class ApplicationController {
 
     @RequestMapping(value = "applications", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public Application addApplication(@RequestParam String name) {
-        return applicationService.add(name);
+    public Application addApplication(@RequestParam String name, @RequestParam String email ) {
+        return applicationService.add(name, email);
     }
 
     @RequestMapping(value = "applications/{appId}", method = RequestMethod.DELETE, produces = "application/json")

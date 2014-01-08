@@ -1,14 +1,11 @@
 package wad.moviedb.domain;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
 @Entity(name="APPLICATION")
 public class Application implements Serializable {
     

@@ -10,7 +10,7 @@ public interface ActionService {
   
   Action remove(Long applicationId, Long actionId);
   
-  Action update(Long applicationId, Action action);
+//  Action update(Long applicationId, Action action);
   
 //  Action addActionCounter(Long applicationId, Long actionId);
   

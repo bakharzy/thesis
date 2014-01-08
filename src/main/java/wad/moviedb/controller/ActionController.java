@@ -29,11 +29,11 @@ public class ActionController {
         return actionService.remove(appId, actionId);
     }
     
-    @RequestMapping(value="applications/{appId}/actions/{actionId}", method = RequestMethod.PUT, consumes="application/json", produces = "application/json")
-    @ResponseBody
-    public Action updateAction(@PathVariable Long appId, @RequestBody Action action){
-        return actionService.update(appId, action);
-    }
+//    @RequestMapping(value="applications/{appId}/actions/{actionId}", method = RequestMethod.PUT, consumes="application/json", produces = "application/json")
+//    @ResponseBody
+//    public Action updateAction(@PathVariable Long appId, @RequestBody Action action){
+//        return actionService.update(appId, action);
+//    }
     
     @RequestMapping(value="applications/{appId}/actions/{actionId}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
@@ -47,10 +47,10 @@ public class ActionController {
         return actionService.list(appId);
     }
     
-    @RequestMapping(value="applications/{appId}/actions/{actionId}/+", method = RequestMethod.PUT, produces = "application/json")
-    @ResponseBody
-    public Action IncerementCounter(@PathVariable Long appId, @PathVariable Long actionId){
-        return actionService.addActionCounter(appId, actionId);
-    }
+//    @RequestMapping(value="applications/{appId}/actions/{actionId}/+", method = RequestMethod.PUT, produces = "application/json")
+//    @ResponseBody
+//    public Action IncerementCounter(@PathVariable Long appId, @PathVariable Long actionId){
+//        return actionService.addActionCounter(appId, actionId);
+//    }
     
 }

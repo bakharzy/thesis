@@ -1,5 +1,6 @@
 package wad.moviedb.service;
 
+import java.util.LinkedList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,11 +22,8 @@ public class ActionServiceImplementation implements ActionService{
     @Override
     @Transactional(readOnly = false)
     public Action add(Long applicationId, Action action) {
-        
-        Application application = applicationRepository.findOne(applicationId);
-        application.getActions().add(action);
-        applicationRepository.save(application);
-        
+        action.setApplicationId(applicationId);
+//        How the actionId is set?
         return actionRepository.save(action);
     }
 
@@ -33,20 +31,17 @@ public class ActionServiceImplementation implements ActionService{
     @Transactional(readOnly = false)
     public Action remove(Long applicationId, Long actionId) {
         Action actionToBeRemoved = actionRepository.findOne(actionId);
-        Application application = applicationRepository.findOne(applicationId);
-        application.getActions().remove(actionToBeRemoved);
-        
         actionRepository.delete(actionId);
         return actionToBeRemoved;
     }
 
-    @Override
-    @Transactional(readOnly = false)
-    public Action update(Long applicationId, Action action) {
-        // Do we need to first delete the action and save the new action?
-        // Do we need to find the action in application list and change the new one there?
-        return actionRepository.save(action);
-    }
+//    @Override
+//    @Transactional(readOnly = false)
+//    public Action update(Long applicationId, Action action) {
+//        // Do we need to first delete the action and save the new action?
+//        // Do we need to find the action in application list and change the new one there?
+//        return actionRepository.save(action);
+//    }
 
     @Override
     @Transactional(readOnly = true)
@@ -57,8 +52,15 @@ public class ActionServiceImplementation implements ActionService{
     @Override
     @Transactional(readOnly = true)
     public List<Action> list(Long applicationId) {
-        Application application = applicationRepository.findOne(applicationId);
-        return application.getActions();
+        List<Action> wantedList = new LinkedList<Action>();
+        List<Action> allActions = actionRepository.findAll();
+        for(Action action: allActions){
+            if(action.getApplicationId() == applicationId){
+                wantedList.add(action);
+            }
+        }
+        
+        return wantedList;
     }
 
 //    @Override

@@ -15,9 +15,10 @@ public class ApplicationServiceImplementation implements ApplicationService{
 
     @Override
     @Transactional(readOnly = false)
-    public Application add(String name) {
+    public Application add(String name, String email) {
         Application newApplication = new Application();
         newApplication.setName(name);
+        newApplication.setEmail(email);
         applicationsRepository.save(newApplication);
         return newApplication;
     }

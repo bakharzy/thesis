@@ -6,7 +6,7 @@ import wad.moviedb.domain.Application;
 
 public interface ApplicationService {
     
-    Application add(String name);
+    Application add(String name, String email);
     
     Application remove(Long id);
     
