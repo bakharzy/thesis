@@ -5,12 +5,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>UMDb</title>
+        <title>Application Management</title>
     </head>
     <body>
-        <h1>UMDb: University Movie Database</h1>
+        <h1>Application management system</h1>
         
-        <a href="${pageContext.request.contextPath}/app/actors">Actor management</a><br/>
-        <a href="${pageContext.request.contextPath}/app/movies">Movie management</a><br/>
+        <a href="${pageContext.request.contextPath}/app/applications">Application management</a><br/>
+        <!--<a href="${pageContext.request.contextPath}/app/movies">Movie management</a><br/>-->
     </body>
 </html>

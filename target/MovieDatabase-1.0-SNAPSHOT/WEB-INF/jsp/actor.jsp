@@ -4,10 +4,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>${actor.name}</title>
+        <title>${application.name}</title>
     </head>
     <body>
-        <h1>Actor ${actor.name}</h1>
+        <h1>Application ${application.name}</h1>
 
         <h2>Movies</h2>
 
