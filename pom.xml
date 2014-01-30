@@ -218,6 +218,8 @@
                             <port>8090</port>
                         </connector>
                     </connectors>
+<!--                    <stopPort>8090</stopPort> 
+                    <stopKey>jetty-stop</stopKey>-->
                 </configuration>
                 
                 

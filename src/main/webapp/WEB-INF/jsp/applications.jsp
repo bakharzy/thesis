@@ -33,6 +33,6 @@
             </c:forEach>
         </ol>
 
-        <div><a href="${pageContext.request.contextPath}/app/movies">Movies</a></div>
+        <div><a href="${pageContext.request.contextPath}/app/applications">Applications</a></div>
     </body>
 </html>
