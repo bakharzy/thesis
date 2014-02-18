@@ -1,4 +1,4 @@
-package wad.moviedb.controller;
+package wad.feedbackSystem.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import wad.moviedb.domain.Application;
-import wad.moviedb.service.ApplicationService;
+import wad.feedbackSystem.domain.Application;
+import wad.feedbackSystem.service.ApplicationService;
 
 @Controller
 public class ApplicationController {

@@ -1,14 +1,15 @@
-package wad.moviedb.service;
+package wad.feedbackSystem.service;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import wad.moviedb.domain.Action;
-import wad.moviedb.domain.Application;
-import wad.moviedb.repository.ActionRepository;
-import wad.moviedb.repository.ApplicationRepository;
+import wad.feedbackSystem.domain.Action;
+import wad.feedbackSystem.domain.Application;
+import wad.feedbackSystem.repository.ActionRepository;
+import wad.feedbackSystem.repository.ApplicationRepository;
 
 @Service
 public class ActionServiceImplementation implements ActionService{
@@ -22,7 +23,13 @@ public class ActionServiceImplementation implements ActionService{
     @Override
     @Transactional(readOnly = false)
     public Action add(Long applicationId, Action action) {
-        action.setApplicationId(applicationId);
+        Date date = new Date();
+        Action newAction = new Action();
+        newAction.setApplicationId(applicationId);
+        newAction.setName(action.getName());
+        newAction.setOptions(action.getOptions());
+        newAction.setTimeStamp(date);
+        newAction.setUsername(action.getUsername());
 //        How the actionId is set?
         return actionRepository.save(action);
     }

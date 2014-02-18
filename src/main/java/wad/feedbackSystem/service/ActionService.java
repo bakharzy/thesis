@@ -1,7 +1,7 @@
-package wad.moviedb.service;
+package wad.feedbackSystem.service;
 
 import java.util.List;
-import wad.moviedb.domain.Action;
+import wad.feedbackSystem.domain.Action;
 
 
 public interface ActionService {

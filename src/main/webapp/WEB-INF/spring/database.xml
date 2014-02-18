@@ -13,7 +13,7 @@
                 http://www.springframework.org/schema/data/jpa
                 http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
  
-    <jpa:repositories base-package="wad.moviedb.repository" />
+    <jpa:repositories base-package="wad.feedbackSystem.repository" />
     
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="persistenceUnitName" value="persistenceUnitDev" /> 

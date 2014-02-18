@@ -1,4 +1,4 @@
-package wad.moviedb.domain;
+package wad.feedbackSystem.domain;
 
 import java.io.Serializable;
 import javax.persistence.Column;

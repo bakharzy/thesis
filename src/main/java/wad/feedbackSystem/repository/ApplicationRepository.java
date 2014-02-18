@@ -1,7 +1,7 @@
-package wad.moviedb.repository;
+package wad.feedbackSystem.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import wad.moviedb.domain.Application;
+import wad.feedbackSystem.domain.Application;
 
 
 public interface ApplicationRepository extends JpaRepository<Application, Long>{

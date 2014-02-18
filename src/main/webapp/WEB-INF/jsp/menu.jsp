@@ -11,6 +11,6 @@
         <h1>Application management system</h1>
         
         <a href="${pageContext.request.contextPath}/app/applications">Application management</a><br/>
-        <!--<a href="${pageContext.request.contextPath}/app/movies">Movie management</a><br/>-->
+        <a href="${pageContext.request.contextPath}/app/action">Action management</a><br/>
     </body>
 </html>

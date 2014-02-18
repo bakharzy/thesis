@@ -25,9 +25,12 @@
         <ol>
             <c:forEach var="application" items="${applications}">
                 <li> Application Name: ${application.name} <br>
-                     Application Email:${application.email} <br>
+                    Application Email:${application.email} <br>
                     <form method="POST" action="${pageContext.request.contextPath}/app/applications/${application.id}">
                         <input type="submit" value="Remove" id="remove-${application.id}"/>
+                    </form><br/>
+                    <form method="POST" action="${pageContext.request.contextPath}/app/applications/${application.id}/actions">
+                        <input type="submit" value="Add Action" id="remove-${application.id}"/>
                     </form><br/>
                 </li>
             </c:forEach>

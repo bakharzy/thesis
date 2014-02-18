@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>wad</groupId>
-    <artifactId>MovieDatabase</artifactId>
+    <artifactId>feedbackSystem</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
-    <name>W3E06.MovieDatabase</name>
+    <name>feedbackSystem</name>
     <url>http://maven.apache.org</url>
     
     <properties>
@@ -241,13 +241,13 @@
                         </configuration>
                     </execution>
                     
-                    <execution>
+<!--                    <execution>
                         <id>stop-jetty</id>
                         <phase>post-integration-test</phase>
                         <goals>
                             <goal>stop</goal>
                         </goals>
-                    </execution>
+                    </execution>-->
                 </executions>
             </plugin>
             

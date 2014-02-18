@@ -1,4 +1,4 @@
-package wad.moviedb;
+package wad.feedbackSystem;
 
 import fi.helsinki.cs.tmc.edutestutils.Points;
 import org.junit.*;

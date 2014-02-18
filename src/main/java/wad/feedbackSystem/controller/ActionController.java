@@ -1,4 +1,4 @@
-package wad.moviedb.controller;
+package wad.feedbackSystem.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import wad.moviedb.domain.Action;
-import wad.moviedb.service.ActionService;
+import wad.feedbackSystem.domain.Action;
+import wad.feedbackSystem.service.ActionService;
 
 @Controller
 public class ActionController {
@@ -17,7 +17,7 @@ public class ActionController {
     @Autowired
     private ActionService actionService;
     
-    @RequestMapping(value="applications/{appId}/actions", method = RequestMethod.POST, consumes="application/json", produces = "application/json")
+    @RequestMapping(value="applications/{appId}/actions", method = RequestMethod.POST)
     @ResponseBody
     public Action addAction(@PathVariable Long appId, @RequestBody Action action){
         return actionService.add(appId, action);

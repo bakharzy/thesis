@@ -1,11 +1,11 @@
-package wad.moviedb.service;
+package wad.feedbackSystem.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import wad.moviedb.domain.Application;
-import wad.moviedb.repository.ApplicationRepository;
+import wad.feedbackSystem.domain.Application;
+import wad.feedbackSystem.repository.ApplicationRepository;
 
 @Service
 public class ApplicationServiceImplementation implements ApplicationService{
