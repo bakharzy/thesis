@@ -7,33 +7,15 @@
         <title>Actions</title>
     </head>
     <body>
-        <h1>Actions</h1>
+        <h1>Action List</h1>
  
-        <h2>Add new action</h2>
- 
-        <div>
-            Enter information and press submit:<br/>
-            <form action="${pageContext.request.contextPath}/app/applications/{appId}/actions" method="POST">
-                Name: <input type="text" name="name" id="name"/><br/>
-                <input type="submit"/>
-            </form>
-        </div>
- 
-        <h2>Existing actors</h2>
+        <h2>Existing actions for your application</h2>
  
         <ol>
-            <c:forEach var="actor" items="${actors}">
-                <li><a href="${pageContext.request.contextPath}/app/actors/${actor.id}">${actor.name}</a>
-                    <form method="POST" action="${pageContext.request.contextPath}/app/actors/${actor.id}/delete">
-                        <input type="submit" value="Remove" id="remove-${actor.id}"/>
-                    </form><br/>
- 
-                    Known for:<br/>
-                    <ul>
-                        <c:forEach var="movie" items="${actor.movies}">
-                            <li>${movie.name}</li>
-                            </c:forEach>
-                    </ul>
+            <c:forEach var="action" items="${actions}">
+                <li> Action ID: ${action.id}<br>
+                    Action Name: ${action.name} <br>
+                    Action Username:${action.username} <br>
                 </li>
             </c:forEach>
         </ol>

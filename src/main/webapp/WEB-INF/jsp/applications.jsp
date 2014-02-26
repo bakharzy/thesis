@@ -29,8 +29,8 @@
                     <form method="POST" action="${pageContext.request.contextPath}/app/applications/${application.id}">
                         <input type="submit" value="Remove" id="remove-${application.id}"/>
                     </form><br/>
-                    <form method="POST" action="${pageContext.request.contextPath}/app/applications/${application.id}/actions">
-                        <input type="submit" value="Add Action" id="remove-${application.id}"/>
+                    <form method="GET" action="${pageContext.request.contextPath}/app/applications/${application.id}/actions">
+                        <input type="submit" value="Actions" />
                     </form><br/>
                 </li>
             </c:forEach>
