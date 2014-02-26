@@ -7,9 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import wad.feedbackSystem.domain.Action;
-import wad.feedbackSystem.domain.Application;
 import wad.feedbackSystem.repository.ActionRepository;
-import wad.feedbackSystem.repository.ApplicationRepository;
+
 
 @Service
 public class ActionServiceImplementation implements ActionService{
@@ -17,9 +16,6 @@ public class ActionServiceImplementation implements ActionService{
     @Autowired
     private ActionRepository actionRepository;
     
-    @Autowired
-    private ApplicationRepository applicationRepository;
-
     @Override
     @Transactional(readOnly = false)
     public Action add(Long applicationId, Action action) {
@@ -30,30 +26,32 @@ public class ActionServiceImplementation implements ActionService{
         newAction.setOptions(action.getOptions());
         newAction.setTimeStamp(date);
         newAction.setUsername(action.getUsername());
-//        How the actionId is set?
-        return actionRepository.save(action);
+        return actionRepository.save(newAction);
     }
 
     @Override
     @Transactional(readOnly = false)
-    public Action remove(Long applicationId, Long actionId) {
+    public String remove(Long applicationId, Long actionId) {
         Action actionToBeRemoved = actionRepository.findOne(actionId);
-        actionRepository.delete(actionId);
-        return actionToBeRemoved;
+        if(actionToBeRemoved.getApplicationId() == applicationId ){
+            actionRepository.delete(actionId);
+            return "Action has been removed successfully!";
+        }
+        return "This action does not exists or you do not have permission for removal!";
     }
 
-//    @Override
-//    @Transactional(readOnly = false)
-//    public Action update(Long applicationId, Action action) {
-//        // Do we need to first delete the action and save the new action?
-//        // Do we need to find the action in application list and change the new one there?
-//        return actionRepository.save(action);
-//    }
 
     @Override
     @Transactional(readOnly = true)
     public Action read(Long applicationId, Long actionId) {
-        return actionRepository.findOne(actionId);
+        Action actionToBeReturned = actionRepository.findOne(actionId);
+        if(actionToBeReturned == null){
+            return null;
+        }
+        if(actionToBeReturned.getApplicationId() == applicationId){
+            return actionToBeReturned;
+        }
+        return null;
     }
 
     @Override
@@ -70,14 +68,5 @@ public class ActionServiceImplementation implements ActionService{
         return wantedList;
     }
 
-//    @Override
-//    @Transactional(readOnly = false)
-//    public Action addActionCounter(Long applicationId, Long actionId) {
-//        Action actionCounterToIncrement = actionRepository.findOne(actionId);
-//        actionCounterToIncrement.IncerementCounter();
-//        actionRepository.save(actionCounterToIncrement);
-//        return actionCounterToIncrement;
-//        
-//    }
     
 }
