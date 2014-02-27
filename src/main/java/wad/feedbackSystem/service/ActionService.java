@@ -6,12 +6,12 @@ import wad.feedbackSystem.domain.Action;
 
 public interface ActionService {
     
-  Action add(Long applicationId, Action action);
+  Action add(String applicationId, Action action);
   
-  String remove(Long applicationId, Long actionId);
+  String remove(String applicationId, String actionId);
   
-  Action read(Long applicationId, Long actionId);
+  Action read(String applicationId, String actionId);
   
-  List<Action> list(Long applicationId);
+  List<Action> list(String applicationId);
     
 }

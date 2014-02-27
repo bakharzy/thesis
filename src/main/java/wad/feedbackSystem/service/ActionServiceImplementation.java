@@ -3,22 +3,26 @@ package wad.feedbackSystem.service;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import wad.feedbackSystem.domain.Action;
-import wad.feedbackSystem.repository.ActionRepository;
 
+@Repository
+public class ActionServiceImplementation implements ActionService {
 
-@Service
-public class ActionServiceImplementation implements ActionService{
-    
     @Autowired
-    private ActionRepository actionRepository;
-    
+    private MongoTemplate mongoTemplate;
+    public static final String COLLECTION_NAME = "action";
+
     @Override
     @Transactional(readOnly = false)
-    public Action add(Long applicationId, Action action) {
+    public Action add(String applicationId, Action action) {
+        if (!mongoTemplate.collectionExists(Action.class)) {
+            mongoTemplate.createCollection(Action.class);
+        }
         Date date = new Date();
         Action newAction = new Action();
         newAction.setApplicationId(applicationId);
@@ -26,29 +30,30 @@ public class ActionServiceImplementation implements ActionService{
         newAction.setOptions(action.getOptions());
         newAction.setTimeStamp(date);
         newAction.setUsername(action.getUsername());
-        return actionRepository.save(newAction);
+        newAction.setId(UUID.randomUUID().toString());
+        mongoTemplate.insert(newAction, COLLECTION_NAME);
+        return newAction;
     }
 
     @Override
     @Transactional(readOnly = false)
-    public String remove(Long applicationId, Long actionId) {
-        Action actionToBeRemoved = actionRepository.findOne(actionId);
-        if(actionToBeRemoved.getApplicationId() == applicationId ){
-            actionRepository.delete(actionId);
+    public String remove(String applicationId, String actionId) {
+        Action actionToBeRemoved = mongoTemplate.findById(actionId, Action.class, COLLECTION_NAME);
+        if (actionToBeRemoved.getApplicationId().equals(applicationId)) {
+            mongoTemplate.remove(actionToBeRemoved, COLLECTION_NAME);
             return "Action has been removed successfully!";
         }
         return "This action does not exists or you do not have permission for removal!";
     }
 
-
     @Override
     @Transactional(readOnly = true)
-    public Action read(Long applicationId, Long actionId) {
-        Action actionToBeReturned = actionRepository.findOne(actionId);
-        if(actionToBeReturned == null){
+    public Action read(String applicationId, String actionId) {
+        Action actionToBeReturned = mongoTemplate.findById(actionId, Action.class, COLLECTION_NAME);
+        if (actionToBeReturned == null) {
             return null;
         }
-        if(actionToBeReturned.getApplicationId() == applicationId){
+        if (actionToBeReturned.getApplicationId().equals(applicationId)) {
             return actionToBeReturned;
         }
         return null;
@@ -56,17 +61,15 @@ public class ActionServiceImplementation implements ActionService{
 
     @Override
     @Transactional(readOnly = true)
-    public List<Action> list(Long applicationId) {
+    public List<Action> list(String applicationId) {
         List<Action> wantedList = new LinkedList<Action>();
-        List<Action> allActions = actionRepository.findAll();
-        for(Action action: allActions){
-            if(action.getApplicationId() == applicationId){
+        List<Action> allActions = mongoTemplate.findAll(Action.class, COLLECTION_NAME);
+        for (Action action : allActions) {
+            if (action.getApplicationId().equals(applicationId)) {
                 wantedList.add(action);
             }
         }
-        
+
         return wantedList;
     }
-
-    
 }

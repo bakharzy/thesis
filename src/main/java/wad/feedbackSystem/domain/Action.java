@@ -2,49 +2,41 @@ package wad.feedbackSystem.domain;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+
+import org.springframework.data.annotation.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity(name = "ACTION")
+@Document
 public class Action implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
-    private Long id;
+    private String id;
     
-    @Column(name = "NAME")
     private String name;
     
-    @Column(name="APPLICATIONID")
-    private Long applicationId;
+    private String applicationId;
     
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "TIMESTAMP")
+//    @Temporal(TemporalType.TIMESTAMP)
     private Date timeStamp;
     
-    @Column(name="username")
     private String username;
     
-    @Column(name="OPTIONS")
     private String options;
 
     /**
      * @return the id
      */
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -65,14 +57,14 @@ public class Action implements Serializable {
     /**
      * @return the applicationId
      */
-    public Long getApplicationId() {
+    public String getApplicationId() {
         return applicationId;
     }
 
     /**
      * @param applicationId the applicationId to set
      */
-    public void setApplicationId(Long applicationId) {
+    public void setApplicationId(String applicationId) {
         this.applicationId = applicationId;
     }
 

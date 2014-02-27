@@ -30,7 +30,7 @@ public class ApplicationController {
 
     @RequestMapping(value = "applications/{appId}", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public Application removeApplication(@PathVariable Long appId) {
+    public Application removeApplication(@PathVariable String appId) {
         return applicationService.remove(appId);
     }
     
@@ -42,7 +42,7 @@ public class ApplicationController {
 
     @RequestMapping(value = "applications/{appId}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public Application getApplication(@PathVariable Long appId) {
+    public Application getApplication(@PathVariable String appId) {
         return applicationService.read(appId);
     }
 

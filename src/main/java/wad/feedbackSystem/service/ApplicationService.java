@@ -8,11 +8,11 @@ public interface ApplicationService {
     
     Application add(String name, String email);
     
-    Application remove(Long id);
+    Application remove(String id);
     
     Application update(Application application);
     
-    Application read(Long id);
+    Application read(String id);
     
     List<Application> list();
     
