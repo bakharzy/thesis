@@ -14,8 +14,11 @@
         <ol>
             <c:forEach var="action" items="${actions}">
                 <li> Action ID: ${action.id}<br>
-                    Action Name: ${action.name} <br>
-                    Action Username:${action.username} <br>
+                     Application ID: ${action.applicationId} <br>
+                     Action Name: ${action.name} <br>
+                     Action Username: ${action.username} <br>
+                     Action options: ${action.options} <br>
+                     Action Date: ${action.timeStamp}
                 </li>
             </c:forEach>
         </ol>

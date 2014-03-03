@@ -24,18 +24,18 @@
 
         <ol>
             <c:forEach var="application" items="${applications}">
-                <li> Application Name: ${application.name} <br>
-                    Application Email:${application.email} <br>
+                <li> Application ID: ${application.id} <br>
+                    Application Name: ${application.name} <br>
+                    Application Email: ${application.email} <br>
                     <form method="POST" action="${pageContext.request.contextPath}/app/applications/${application.id}">
                         <input type="submit" value="Remove" id="remove-${application.id}"/>
-                    </form><br/>
-                    <form method="GET" action="${pageContext.request.contextPath}/app/applications/${application.id}/actions">
+                    </form>
+                    <form method="GET" action="${pageContext.request.contextPath}/app/applications/${application.id}/actions/show">
                         <input type="submit" value="Actions" />
                     </form><br/>
                 </li>
             </c:forEach>
         </ol>
 
-        <div><a href="${pageContext.request.contextPath}/app/applications">Applications</a></div>
     </body>
 </html>

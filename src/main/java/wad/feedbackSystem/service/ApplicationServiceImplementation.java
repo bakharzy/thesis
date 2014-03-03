@@ -50,8 +50,11 @@ public class ApplicationServiceImplementation implements ApplicationService {
     @Override
     @Transactional(readOnly = false)
     public Application update(Application application) {
-        mongoTemplate.insert(application, COLLECTION_NAME);
-        return application;
+        Application app = mongoTemplate.findById(application.getId(), Application.class, COLLECTION_NAME);
+        app.setEmail(application.getEmail());
+        app.setName(application.getName());
+        mongoTemplate.save(app, COLLECTION_NAME);
+        return app;
     }
 
     @Override

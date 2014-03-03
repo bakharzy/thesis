@@ -24,7 +24,7 @@ public class ActionController {
         return actionService.add(appId, action);
     }
 
-    @RequestMapping(value = "applications/{appId}/actions/{actionId}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "applications/{appId}/actions/{actionId}", method = RequestMethod.POST)
     public String removeAction(@PathVariable String appId, @PathVariable String actionId) {
         return actionService.remove(appId, actionId);
     }
@@ -35,14 +35,14 @@ public class ActionController {
         return actionService.read(appId, actionId);
     }
 
-    @RequestMapping(value = "applications/{appId}/actions/show", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "applications/{appId}/actions", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public List<Action> listActions(@PathVariable String appId) {
+    public List<Action> listActionsReturnJSON(@PathVariable String appId) {
         return actionService.list(appId);
     }
-
-    @RequestMapping(value = "applications/{appId}/actions", method = RequestMethod.GET)
-    public String listActions(@PathVariable String appId, Model model) {
+// Below APIs are not exposed to users
+    @RequestMapping(value = "applications/{appId}/actions/show", method = RequestMethod.GET)
+    public String listActionsReturnJSP(@PathVariable String appId, Model model) {
         model.addAttribute("actions", actionService.list(appId));
         return "action";
     }

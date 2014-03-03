@@ -45,15 +45,15 @@ public class ApplicationController {
     public Application getApplication(@PathVariable String appId) {
         return applicationService.read(appId);
     }
-
+// Below APIs are not exposed to users
     @RequestMapping(value = "applications/show", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public List<Application> listApplications() {
+    public List<Application> listApplicationsReturnJSON() {
         return applicationService.list();
     }
     
     @RequestMapping(value = "applications", method = RequestMethod.GET)
-    public String listApplications(Model model) {
+    public String ListApplicationsReturnJSP(Model model) {
         model.addAttribute("applications",applicationService.list());
         return "applications";
     }
