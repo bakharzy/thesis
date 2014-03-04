@@ -1,5 +1,8 @@
 Feedback System 
-======
+========================
+Currently running on Openshift for testing:
+http://test-bakharzy.rhcloud.com/test
+
 Architecture overview
 * Please click on the picture. to enlarge the picture.
 
