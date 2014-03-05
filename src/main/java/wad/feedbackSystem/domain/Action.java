@@ -1,29 +1,29 @@
 package wad.feedbackSystem.domain;
 
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.util.Date;
-
-
 import org.springframework.data.annotation.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import org.springframework.data.mongodb.core.mapping.Document;
+import java.text.SimpleDateFormat;
+import java.util.TimeZone;
 
 @Document
 public class Action implements Serializable {
 
+    public Action() {
+
+        TimeZone tz = TimeZone.getTimeZone("UTC");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mmZ");
+        df.setTimeZone(tz);
+        this.timeStamp = df.format(new Date());
+    }
     @Id
     private String id;
-    
     private String name;
-    
     private String applicationId;
-    
-//    @Temporal(TemporalType.TIMESTAMP)
-    private Date timeStamp;
-    
+    private String timeStamp;
     private String username;
-    
     private String options;
 
     /**
@@ -53,7 +53,7 @@ public class Action implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
+
     /**
      * @return the applicationId
      */
@@ -71,14 +71,14 @@ public class Action implements Serializable {
     /**
      * @return the timeStamp
      */
-    public Date getTimeStamp() {
+    public String getTimeStamp() {
         return timeStamp;
     }
 
     /**
      * @param timeStamp the timeStamp to set
      */
-    public void setTimeStamp(Date timeStamp) {
+    public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
     }
 
@@ -109,5 +109,4 @@ public class Action implements Serializable {
     public void setOptions(String options) {
         this.options = options;
     }
-    
 }

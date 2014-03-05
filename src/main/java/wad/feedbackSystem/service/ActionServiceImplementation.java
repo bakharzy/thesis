@@ -1,6 +1,5 @@
 package wad.feedbackSystem.service;
 
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
@@ -23,12 +22,11 @@ public class ActionServiceImplementation implements ActionService {
         if (!mongoTemplate.collectionExists(Action.class)) {
             mongoTemplate.createCollection(Action.class);
         }
-        Date date = new Date();
+
         Action newAction = new Action();
         newAction.setApplicationId(applicationId);
         newAction.setName(action.getName());
         newAction.setOptions(action.getOptions());
-        newAction.setTimeStamp(date);
         newAction.setUsername(action.getUsername());
         newAction.setId(UUID.randomUUID().toString());
         mongoTemplate.insert(newAction, COLLECTION_NAME);

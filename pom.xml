@@ -112,13 +112,7 @@
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>javax.persistence</artifactId>
             <version>2.1.0</version>
-        </dependency>
-        
-<!--        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.3.173</version>
-        </dependency>-->
+        </dependency>     
       
         <dependency>
             <groupId>jstl</groupId>
@@ -138,14 +132,7 @@
             <scope>provided</scope>
         </dependency>
         
-        <!-- testing -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>2.35.0</version>
-            <scope>test</scope>
-        </dependency>
-        
+        <!-- testing -->    
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -153,42 +140,7 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>fi.helsinki.cs.tmc</groupId>
-            <artifactId>edu-test-utils</artifactId>
-            <version>0.4.2</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
-    
-    <repositories>
-        <repository>
-            <id>tmc</id>
-            <name>TMC repo</name>
-            <url>http://maven.testmycode.net/nexus/content/groups/public</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    
-    <pluginRepositories>
-        <pluginRepository>
-            <id>tmc</id>
-            <name>TMC repo</name>
-            <url>http://maven.testmycode.net/nexus/content/groups/public</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-    
     
     <build>
         <plugins>
@@ -207,73 +159,7 @@
                     <target>1.6</target>
                 </configuration>
             </plugin>
-            
-<!--            <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                
-                <version>8.1.12.v20130726</version>
-
-                <configuration>
-                                               
-                    <scanIntervalSeconds>5</scanIntervalSeconds>
-                    
-                    <systemProperties>
-                        <systemProperty>
-                            <name>jetty.port</name>
-                            <value>8090</value>
-                        </systemProperty>
-                    </systemProperties>
-                    
-                    <connectors>
-                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-                            <port>8090</port>
-                        </connector>
-                    </connectors>
-                                        <stopPort>8090</stopPort> 
-                    <stopKey>jetty-stop</stopKey>
-                </configuration>
-                
-                
-                <executions>
-                    <execution>
-                        <id>start-jetty</id>
-                        <phase>process-test-classes</phase>
-                        
-                        
-                        <goals>
-                             <goal>run-exploded</goal> 
-                             toimii 8.x -versioissa 
-                            <goal>start</goal>
-                        </goals>
-                                                
-                        <configuration>
-                            <scanIntervalSeconds>5</scanIntervalSeconds>
-                            <daemon>true</daemon>
-                        </configuration>
-                    </execution>
-                    
-                                        <execution>
-                        <id>stop-jetty</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>-->
-            
-<!--            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.16</version>
-                <configuration>
-                     verify that the system property for jetty port is set properly 
-                    <systemPropertyVariables>
-                        <jetty.port>8090</jetty.port>
-                    </systemPropertyVariables>
-                </configuration>              
-            </plugin>-->
+   
         </plugins>
     </build>
 </project>
