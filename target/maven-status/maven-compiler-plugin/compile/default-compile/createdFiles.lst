@@ -3,7 +3,6 @@ wad/feedbackSystem/domain/Application.class
 wad/feedbackSystem/service/ActionServiceImplementation.class
 wad/feedbackSystem/service/ApplicationService.class
 wad/feedbackSystem/service/ActionService.class
-config/MongoConfig.class
 wad/feedbackSystem/controller/ApplicationController.class
 wad/feedbackSystem/controller/DefaultController.class
 wad/feedbackSystem/service/ApplicationServiceImplementation.class

@@ -6,6 +6,7 @@ import java.util.Date;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.TimeZone;
 
 @Document
@@ -24,7 +25,10 @@ public class Action implements Serializable {
     private String applicationId;
     private String timeStamp;
     private String username;
-    private String options;
+    private HashMap<String,String> options;
+
+
+    
 
     /**
      * @return the id
@@ -99,14 +103,29 @@ public class Action implements Serializable {
     /**
      * @return the options
      */
-    public String getOptions() {
+    public HashMap<String,String> getOptions() {
         return options;
     }
 
     /**
      * @param options the options to set
      */
-    public void setOptions(String options) {
+    public void setOptions(HashMap<String,String> options) {
         this.options = options;
     }
+    
+    //    @Override
+//        public String toString() {
+//            final StringBuffer sb = new StringBuffer("Action{");
+//            sb.append("id='").append(id).append('\'');
+//            sb.append(", name='").append(name).append('\'');
+//            sb.append(", applicationId='").append(applicationId).append('\'');
+//            sb.append(", timeStamp='").append(timeStamp).append('\'');
+//            sb.append(", username='").append(username).append('\'');
+//            sb.append(", options=").append(options);
+//            sb.append(", extra=").append(extra);
+//            sb.append('}');
+//            return sb.toString();
+//        }
+
 }

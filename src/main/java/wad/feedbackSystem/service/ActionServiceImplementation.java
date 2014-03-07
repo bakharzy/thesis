@@ -22,13 +22,12 @@ public class ActionServiceImplementation implements ActionService {
         if (!mongoTemplate.collectionExists(Action.class)) {
             mongoTemplate.createCollection(Action.class);
         }
-
         Action newAction = new Action();
+        newAction.setId(UUID.randomUUID().toString());
         newAction.setApplicationId(applicationId);
         newAction.setName(action.getName());
         newAction.setOptions(action.getOptions());
         newAction.setUsername(action.getUsername());
-        newAction.setId(UUID.randomUUID().toString());
         mongoTemplate.insert(newAction, COLLECTION_NAME);
         return newAction;
     }
@@ -70,4 +69,5 @@ public class ActionServiceImplementation implements ActionService {
 
         return wantedList;
     }
+
 }
