@@ -1,7 +1,7 @@
 Feedback System 
 ========================
 Currently running on Openshift for testing @
-http://data-bakharzy.rhcloud.com/api
+http://data-bakharzy.rhcloud.com/api (down for now)
 
 The prototype tool is a cloud-based application that can be accessed via HTTP protocol. In order to collect, store and retrieve user usage data, external software applications can use this tool to track any action which is the object of interest for them. Action refers to any event happening in software applications. For instance, clicking on buttons for different purposes (sign up, purchase, share some article, etc) are actions performed by users of software application. In order to send the action data to the prototype tool, each software application (mobile application, web application, etc) needs to be registered in the prototype tool database as an application. Therefore, there are two entities stored on the database, application and its related actions. 
 
