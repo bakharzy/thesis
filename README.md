@@ -1,4 +1,4 @@
-Feedback System 
+A tool to collect user usage data
 ========================
 Currently running on Openshift for testing @
 http://data-bakharzy.rhcloud.com/api (down for now)
